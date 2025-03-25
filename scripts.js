@@ -274,18 +274,278 @@ operador de maior ou igual a >=
 operador de menor ou igual a <=
     balance = 500
     console.log(balance <= payment)
+
+
+
+Operadores logico
+    let email = true
+    let password = true
+AND (E) && (os dois tem que ser verdadeiro)
+    console.log(email && password)
+
+OR (OU) || (Apenas 1 tem que ser o verdadeiro)
+    console.log(email || password)
+
+NOT (Negação) !
+    console.log(!password)
+
+
+// Condicionais e controle de fluxo
+//Permite executar diferentes ações com base em uma condição (true or false)
+// Operador condicional ternario
+    let age = 18
+    console.log(
+    age >= 18 // Condição
+    ? "Você pode dirigir" // se é verdaderio
+    : "voce não pode dirigir." // se é falso
+)
+
+console.log(
+    age < 18
+    ? "você não pode dirigir"
+    : "você pode dirigir"
+)
+Falsy é quando um valor é considerado false e Truthy é considerado verdadeiro em contexto onde um boolean é obrigatorio (condicionais e loops)
+
+
+    console.log("### EXEMPLOS DE FALSY ###")
+    console.log(false ? "verdadeiro" : "falso")
+    console.log(0 ? "verdadeiro" : "falso")
+    console.log(-0 ? "verdadeiro" : "falso")
+    console.log("" ? "verdadeiro" : "falso")
+    console.log(null ? "verdadeiro" : "falso")
+    console.log(undefined ? "verdadeiro" : "falso")
+    console.log(NaN ? "verdadeiro" : "falso")
+    console.log("### EXEMPLOS DE TRUTHY ###")
+    console.log(true ? "verdadeiro" : "falso")
+    console.log({} ? "verdadeiro" : "falso")
+    console.log([] ? "verdadeiro" : "falso")
+    console.log(1 ? "verdadeiro" : "falso")
+    console.log(1.337 ? "verdadeiro" : "falso")
+    console.log("Victor" ? "verdadeiro" : "falso")
+    console.log(" " ? "verdadeiro" : "falso")
+    console.log(-50 ? "verdadeiro" : "falso")
+    console.log(Infinity ? "verdadeiro" : "falso")
+
+// Estrutura de condição if
+
+let hour = 11
+if(hour <= 12){
+    console.log("Bom dia")
+}
+
+// Estrutura de condição if else
+
+let age = 17
+
+if( age < 18){
+    console.log("você não pode dirigir")
+} else {
+    console.log("Você pode dirigir")
+}
+
+// Estrutura de condição if else if
+
+    let hour = 15
+
+    if(hour <= 12){
+        console.log("bom dia")
+    }
+    else if(hour > 18){
+        console.log("boa noite")
+    }
+    else if(hour > 12){
+        console.log("boa tarde")
+    }
+
+    #########################
+
+    if(hour <= 12){
+        console.log("bom dia")
+    }
+    else if(hour > 12 && hour <= 18){
+        console.log("boa tarde")
+    } else {
+        console.log("boa noite")
+    }
+
+
+//Switch
+
+let option = 3
+
+switch(option){
+ case 1: 
+    console.log("consultar pedido")
+    break
+ case 2:
+    console.log("falar com atendente")
+    break
+ case 3:
+    console.log("cancelar pedido")
+}
+
+
+
+// Tratamento de exceção try / catch / finally
+
+    try{
+        // TENTA executar algo.
+        console.log(result)
+    } catch(error) {
+        // CAPTURA o erro para tratar
+        console.log(error)
+    } finally {
+        console.log("fim")
+    }
+
+// ##########################
+
+    let result = 0 
+
+    try {
+        if(result === 0) {
+            throw new Error ("o valor é igual a zero")
+        }
+    } catch (error) {
+        console.log(error)
+    } finally {
+        console.log("fim")
+    }
+
+
+// Funções
+
+function message(){
+    console.log("olá. é bom ter voce aqui")
+}
+message()
+
+
+// Paramentros: é a variavel (escopo da função) que irá receber um valor em uma função; Argumentos: é o valor que é passado para a função
+
+// Passando o paramentro username.
+function message(username){
+    console.log("olá,", username)
+}
+
+// Passando argumentos
+    message("victor")
+    message("Yarmin")
+
+    function sum(a, b){
+        console.log(a + b)
+    }
+
+    sum(10,20)
+    sum(54,20)
+
+//Definindo um valor (argumento) padrão
+    function joinText(text1, text2 = "", text3 = ""){
+        console.log(text1, text2, text3)
+    }
+
+    joinText("Victor", "Hugo", "Ornellas")
+    joinText("Hugo", "Victor",  "Ornellas")
+    joinText("Victor")
+
+
+// Retornando valores
+function sum(a,b){
+    let result = a + b
+
+    return result
+}
+
+let response = sum(7,7)
+console.log(response)
+
+
+// Escopo de função
+
+
+showMessage("olá, Victor")
+function showMessage(message){
+    console.log(message)
+}
+showMessage("olá, Victor")
+
+function showMessage(message){
+    console.log(message)
+    endLine()
+    
+    
+    function endLine (){
+        console.log("---------")
+    }
+}
+showMessage("olá, Victor")
+
+// Comentario de documentação
+/**
+ * 
+ * @param {string} email user email
+ * @param {string} password more than 10 characteres
+ */
+
+/*function singIn(email, password){
+
+}
+
+singIn()
+
+
+// Função anonima (função que nao possui nome)
+
+const showMessage1 = function(){
+    return "ola, victor"
+}
+console.log(showMessage1())
+
+
+const showMessage2 = function(name){
+    return "ola, " + name
+}
+
+console.log(showMessage2("Victor"))
+
+
+//Arow function
+
+    const showMessage1 = () =>{
+        console.log("ola")
+    }
+    console.log(showMessage1)
+    showMessage1()
+
+
+    const showMessage2 = (username, email) =>{
+        console.log("ola, ", username, "Seu email é: ", email)
+    }
+
+    showMessage2("Yarmin", "yarmin@email.com")
 */
 
+//Função callback: é uma função passada pra outra função como um argumneto
 
-//Operadores logico
+function execute(taskname, callback){
+    console.log("Executando a tarefa: ", taskname)
 
-let email = true
-let password = true
-// AND (E) && (os dois tem que ser verdadeiro)
-console.log(email && password)
+    callback()
+}
 
-// OR (OU) || (Apenas 1 tem que ser o verdadeiro)
-console.log(email || password)
+function callback(){
+    console.log("Tarefa finalizada.")
+}
+// passando para a funçãp
+execute("download do arquivo...", callback)
 
-//NOT (Negação) !
-console.log(!password)
+// Criando a funçao no proprio paramento
+execute("upload do arquivo....", function(){
+    console.log("upload finalizado")
+})
+
+// Utlizando arrow funtion
+execute("excluindo arquivo", () => {
+    console.log("arquivo excluido")
+})
