@@ -524,7 +524,7 @@ console.log(showMessage2("Victor"))
     }
 
     showMessage2("Yarmin", "yarmin@email.com")
-*/
+
 
 //Função callback: é uma função passada pra outra função como um argumneto
 
@@ -549,3 +549,123 @@ execute("upload do arquivo....", function(){
 execute("excluindo arquivo", () => {
     console.log("arquivo excluido")
 })
+
+
+// DOM (Documento Object Model), é a representação de dados dos objetos que compoem a estrutura e o conteudo de um documento na web
+
+//Visualizar o conteudo do documento
+//console.log(document)
+//obter o titulo da pagina
+    console.log(document.title)
+
+//Acessa o elemento pelo ID (seletor ID)
+    const guest = document.getElementById("guest-1")
+    console.log(guest)
+
+
+// Mostra a propriedade do objeto
+    console.dir(guest)
+
+//Acessa o elemento pela class (seletor class)
+    const guestByclass = document.getElementsByClassName("guest")
+    console.log(guestByclass)
+
+//Exibe o primeiro item da lista
+    console.log(guestByclass.item(0))
+    console.log(guestByclass.item(1))
+
+
+//Selecionar lista de elementos pela tag
+    const guestByTag = document.getElementsByTagName("li")
+    console.log(guestByTag)
+
+
+//QuerySelector
+//Acessa o elemento pelo seletor ID
+    const guest = document.querySelector("#guest-1")
+    console.log(guest)
+//Acessa apenas o primeiro elemento 
+///const guests = document.querySelector(".guest")
+
+//Acessa todos os elementos encontrado pela query
+    const guests = document.querySelectorAll(".guest")
+    console.log(guests)
+
+
+//Manipulando conteudo
+    const guest = document.querySelector("#guest-1 ")
+
+//Retorna o conteudo como texto
+    //console.log(guest.textContent)
+    //guest.textContent = "Victor Hugo"
+
+
+    console.log(guest.innerHTML) // Retornar o HTML como texto
+    console.log(guest.innerText) // Retornar somente o conteudo visivel
+    console.log(guest.textContent) // Retorna o conteudo visivel e oculto
+
+
+Alterando Estilos
+    const input = document.querySelector("#name")
+Adicionar a classe
+    input.classList.add("input-error")
+Remove a classe
+    input.classList.remove("input-error")
+Se tiver classe ele remove, se não tiver ele cria uma nova classe
+    input.classList.toggle("input-error")
+Modificar as propriedades css do elemento
+    const button = document.querySelector("button")
+    button.style.backgroundColor = "red"
+
+//Criando elementos 
+    const guest = document.querySelector("ul")
+    const newGuest = document.createElement("li")
+    newGuest.classList.add("guest")
+    const guestName = document.createElement("span")
+    guestName.textContent = "Lula"
+
+    const guestSurname = document.createElement("span")
+    guestSurname.textContent = "Ornellas"
+//Adiciona apos o ultimo filho
+    newGuest.append(guestName)
+//Adiciona antes do primeiro filho
+    //newGuest.prepend(guestSurname)
+
+//adiciona no HTML
+    guest.append(newGuest)
+
+
+//Manipulando Atributos
+    const input = document.querySelector("input")
+    Atualiza um atributo
+    input.setAttribute("disebled", true)
+    input.setAttribute("type", "file")
+    input.removeAttribute("id")
+
+//Evento
+window.addEventListener("load", () => {
+    console.log("a pagina foi carregada")
+}
+)
+
+addEventListener("click", (event) => {
+    event.preventDefault()
+
+    // Retorna todas as informaçoes do evento
+    //console.log(event)
+
+    // Retorna o elemento clicado
+    console.log(event.target)
+})
+
+
+
+//
+//Evento scroll
+const ul = document.querySelector("ul")
+ul.addEventListener("scroll", (event) => {
+    console.log(event)
+})
+
+*/
+
