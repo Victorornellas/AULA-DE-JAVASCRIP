@@ -694,3 +694,96 @@ const form = document.querySelector("form")
 */
 
 // Debug - Depuração de codigo é o precessode encontarar e corrigir erros (bugs)
+
+//Objetos > Um objeto é uma estrutura que representa algo com propriedades e comportamentos. Uma coleção de dados e/ou funcionalidades; Podem ter propriedades e metodos
+
+// Cria um objeto vazio
+
+/*const obj = {}
+console.log(obj)
+console.log(typeof obj)
+
+//Cria um objeto com propriedades e metodos.
+const user = {
+    email: "victor@email.com",
+    age: 25,
+    //Estrutura de objeto aninhado
+    name: {
+        firstName: "Victor",
+        surName: "Ornellas",
+    },
+    adress: {
+        street: "Rua W",
+        number: 29,
+        postal_code: 12345-678
+    },
+}
+//Acessando propriedades e metodos usando notação de ponto
+console.log(user.name.firstName)
+*/
+
+/*const user = {
+    name: "Victor",
+    message : () => {
+        console.log(`Olá ${user.name}`)
+    }
+}
+user.message()
+
+
+//Como atualizar um objeto
+const product = {
+    name: "Teclado",
+    quantity: 100,
+
+}
+console.log(product)
+// Atualiza o valor de uma propriedade
+product.quantity = 90
+
+console.log(product.quantity)
+
+product.name = "Mouse"
+console.log(product.name)
+*/
+
+//Optional Chaining no JavaScript, um recurso útil para acessar propriedades de objetos de forma segura, evitando erros caso a propriedade não exista.
+
+/*const user = {
+    Name: "victor",
+    email: "victor@email.com",
+    adress: {
+        rua: "Rua H",
+        number: "73",
+        city: "Salvador",
+        state: "Bahia",
+    },
+    message: () => {
+        console.log(`Olá, ${user.Name}`)
+    }
+}
+console.log(user?.adress)
+user.message()
+*/
+
+//Função construtura
+
+function createProduct(name){
+    const product = {}
+    
+    product.name = name
+    product.details = function(){
+        console.log(`O nome do produto é ${this.name}`)
+    }
+
+    return product
+}
+// O 'new' cria um novo objeto utilizando a estrutura da função construtura.
+const product1 = new createProduct("teclado")
+console.log(product1.name)
+product1.details()
+
+
+const product2 = new createProduct("Mouse")
+console.log(product2.name)
+product2.details()
