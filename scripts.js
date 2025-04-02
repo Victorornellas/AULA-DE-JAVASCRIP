@@ -862,5 +862,94 @@ console.log(message.indexOf("Javascript")) //Quando nao encontra retorna -1 (Cas
 
 //Verifica se existe a palavra na String
 console.log(message.includes("Javascript")) //Quando não encontra retorna false
+
+
+//Array = Uma lista de item ordenado começando do index 0
+
+//Criando Array com construtor
+const newArray = new Array()
+console.log(newArray) // [] - Array
+
+//Cria o Array com 10 posições vazia
+const available = new Array(10)
+console.log(available)
+//Retorna o tamnho do array
+console.log(available.length)
+
+//Convertando uma string para array
+//Cria o Array
+let fruits = ['apple', 'banana', 'orange']
+console.log(fruits)
+//Acessa o item pelo index
+console.log(fruits[0]) //Se acessar um index que não existe retorna underfined
+//Obtem dinamicamente o ultimo item
+console.log(fruits[fruits.length - 1])
+let fullName = "Victor Hugo Ornellas"
+console.log(fullName)
+//Cria um Array com os nomes separando pelo espaço
+console.log(fullName.split(" "))
+//Cria um Array com as letras
+console.log(Array.from(fullName))
+
+
+//Adicionando e removendo um item do array
+let users = []
+//Adiciona um item ao final do Array
+users.push("Victor")
+users.push("Yarmin")
+users.push("Lula")
+//Adiciona um item no inicio do array
+users.unshift("Quinho")
+//Remove o item no inicio do array
+users.shift()
+//Remove o item no final do array
+users.pop()
+console.log(users)
+
+
+//Usando indice
+let fruits  = ['apple', 'orange', 'grape', 'lemon']
+console.log(fruits)
+//Encontra e retorna o indice do elemento no array (caso nao ache o item retorna -1)
+let position = fruits.indexOf("grape")
+console.log(position)
+//Remove um item pela posição do indice (1 é o numero de itens para remover)
+//fruits.splice(1, 2)
+//console.log(fruits)
+
+fruits.splice(position, 1)
+console.log(fruits)
+
+//Quais elementos o array aceita
+let myArray = [
+    "um texto",
+    5,
+    true,
+    function(){
+        console.log("Função dentro de Array!")
+    },
+    {
+        name: "Victor",
+        secondName: "Hugo",
+    }
+]
+//String
+console.log(myArray[0])
+//Number
+console.log(myArray[1])
+//Boolean
+console.log(myArray[2])
+//Função
+myArray[3]()
+//Objeto
+console.log(myArray[4].name, myArray[4].secondName)
 */
+
+
+//Verificando se existe um conteudo no array
+let fruits = ['Apple', 'Grape', 'Banana', 'Papaya']
+
+//Verifica se um item existe no array(Retorna um boolean)
+console.log(fruits.includes("Grape"))
+console.log(fruits.includes("Lemon"))
 
