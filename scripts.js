@@ -764,7 +764,7 @@ console.log(product.name)
 }
 console.log(user?.adress)
 user.message()
-*/
+
 
 //Função construtura
 
@@ -787,3 +787,80 @@ product1.details()
 const product2 = new createProduct("Mouse")
 console.log(product2.name)
 product2.details()
+*/
+
+//Metodos de texto
+
+//let message = "Estou estudando os fundamentos do Javascript."
+
+//console.log(message)
+
+//Exibir o texto em maiusculo
+//console.log(message.toUpperCase())
+
+//Exibir o texto em minusculo
+//console.log(message.toLowerCase())
+
+//Comprimento de um string
+//console.log(message.length)
+
+//let password = "1234567"
+
+/*if(password.length < 6) {
+    console.log("A senha deve ter ao menos 7 caracteres")
+}else{
+    console.log("Entrada concluida")
+}
+
+//Quantos digitos tem um numero
+let value = 12345
+console.log(String(value).length) //Colocar o numero para string pois contagem de numero resulta em underfind
+*/
+
+//Substituindo e fatiando um texto
+/*console.log(message.replace(
+    "os fundamentos do Javascript",
+    "HTML"))
+
+//Extraindo uma parte da string (start, end)
+console.log(message.slice(5, 17))
+
+
+const creditCard = "1234567812344928"
+console.log(creditCard.length)
+//Pega os 4 ultimos digitos
+const lastDigts = creditCard.slice(-4)
+console.log(lastDigts)
+//O padStart preenche a string do inicio
+const maskedNumber = lastDigts.padStart(creditCard.length, "X")
+console.log(maskedNumber)
+//O padEnd preenche a string no inicio
+const number = "123"
+console.log(number.padEnd(10, "#"))
+
+
+//Separando e unindo strings
+//Separar a Spring
+let text = "Estudar, Aprender, Praticar"
+
+let separate = text.split(",")
+console.log(separate)
+
+let message = "Estou aprendendo Javascript"
+console.log(message.split(" "))
+
+let joined  = separate.join(" ")
+console.log(joined)
+
+
+//Encontrando um conteudo no texto
+
+let message = "Estou estudando os fundamentos do Javascript."
+
+//Obtem a posição da palvra
+console.log(message.indexOf("Javascript")) //Quando nao encontra retorna -1 (Case sensitive)
+
+//Verifica se existe a palavra na String
+console.log(message.includes("Javascript")) //Quando não encontra retorna false
+*/
+
