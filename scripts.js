@@ -1052,4 +1052,155 @@ for (let i = 0; i <= 10; i++) {
     }
     console.log(i)
 }
+
+//Classes 
+
+class Person {
+    constructor(name){
+        console.log("Olá,", name)
+    }
+}
+
+const person = new Person("Victor")
+
+
+class Product {
+    constructor(name){
+        this.name = name
+    }
+}
+
+const product1 = new Product("Teclado")
+console.log(product1.name)
+const product2 = new Product("Mouse")
+console.log(product2.name)
+
+
+class User {
+    constructor(name, email) {
+        this.name = name
+        this.email = email
+    }
+
+    sendEmail(){
+        console.log("Email enviado para", this.name, "para o endereço", this.email)
+    }
+}
+
+const user = new User("Victor", "victor@email.com")
+user.sendEmail()
+
+
+
+//Metodo estatico acessa sem precisar instanciar
+class User {
+    static showMessage(){
+        console.log("essa é uma mensagem")
+    }
+}
+
+//const user = new User()
+//user.showMessage()
+User.showMessage()
+
+
+//Aplicando Herança
+
+class Animal {
+    constructor(name){
+        this.name = name
+    }
+
+    makeNoise(){
+        console.log("Algum som generico do animal")
+    }
+}
+
+class Dog extends Animal {
+
+}
+const dog = new Dog("Pilu")
+console.log(dog.name)
+dog.makeNoise()
+
+class Cat extends Animal {
+
+}
+const cat = new Cat("Nina")
+console.log(cat.name)
+cat.makeNoise()
+
+//Sobrescrevendo metodos
+
+class Animal {
+    constructor(name){
+        this.name = name
+    }
+
+    makeNoise(){
+        console.log("Algum som generico do animal")
+    }
+}
+
+class Dog extends Animal {
+    makeNoise(){
+        console.log("Au au")
+    }
+}
+const dog = new Dog("Pilu")
+console.log(dog.name)
+dog.makeNoise()
+
+class Cat extends Animal {
+    makeNoise(){
+        console.log("Miau miau")
+    }
+}
+const cat = new Cat("Nina")
+console.log(cat.name)
+cat.makeNoise()
+
+
+//Como utilizar classes pra lidar com exceções
+let obj = []
+
+try {
+    obj.execute()
+} catch (error) {
+    if(error instanceof TypeError){
+        console.log("metodo indisponivel")
+    }
+}
+
+
+let obj = []
+
+try {
+    if(!obj.includes(17)){
+        throw new Error("o numero 17 nao  esta disponivel")
+    }
+} catch (error) {
+    if(error instanceof TypeError){
+        console.log("metodo indisponivel")
+    }
+
+    console.log(error)
+}
 */
+
+class MyCustomError {
+    constructor(message){
+        this.message = message
+        CUSTOMIZADA: + message
+    }
+}
+
+try {
+    throw new MyCustomError("erro personalizado")
+} catch (error) {
+    if (error instanceof MyCustomError) {
+        console.log(error.message)
+    } else {
+        console.log("Nao foi possivel executar!")
+    }
+}
