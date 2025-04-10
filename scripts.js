@@ -1186,7 +1186,7 @@ try {
 
     console.log(error)
 }
-*/
+
 
 class MyCustomError {
     constructor(message){
@@ -1204,3 +1204,114 @@ try {
         console.log("Nao foi possivel executar!")
     }
 }
+
+//"use strict"
+
+function showMessage() {
+    
+    let personName = "Victor"
+
+    console.log("Olá, ", personName)
+}
+
+showMessage()
+
+class Student {
+    get point() {
+        return 7
+    }
+}
+
+let student = new Student
+//student.point = 10
+console.log(student.point)
+
+function sum(a, a, c){
+    return a + a +c 
+}
+
+const result = sum(1,3,2)
+console.log("Resultado: ", result) // 3 + 3 +2
+
+
+
+//Destucturing assigment: Permite extrair dados de arrays ou objetos em variaveis distintas.
+
+const data = ["Victor hugo", "victor@email.com"]
+
+//Destruturando array
+const [username, email] = data
+console.log("Name: ", username)
+console.log("Email: ", email)
+
+const fruits = ["Banana", "Apple", "Orange"]
+
+//Desestruturar somente o primeiro
+const [banana] = fruits
+console.log(banana)
+
+//Ignorando o primeiro na desestruturação
+const [_, apple] = fruits
+console.log(apple)
+
+//Ignorando o primeiro e o segundo na desestruturação
+const [, , orange] = fruits
+console.log(orange)
+
+
+const product = {
+    description: "Teclado",
+    price: 150,
+}
+
+const {description, price} = product
+console.log("Descrição: ", description)
+console.log("Preço: R$ ", price)
+
+function newProduct({description, price}){
+    console.log("Descrição: ", description)
+    console.log("Preço: R$ ", price)
+}
+
+newProduct({
+    description: "Mouse",
+    price: 70,
+})
+
+
+//Rest params: Permite representar um numero indefinido de argumentos como um array
+
+function values(...rest){
+    //Mostra a quantidade de paramentos
+    console.log(rest.length)
+    //Exibe o conteudo do rest que é um array
+    console.log(rest)
+    //Exibindo o conteudo do array
+    console.log(...rest)
+}
+
+values(2, 1, 3, 4)
+*/
+
+//Spread: permite que um objeto iteravel, como uma expressao de array ou uma string seja expandido para ser usado onde zero ou mais argumentos
+
+const numbers = [1, 2, 3]
+console.log(numbers)
+
+//Spread
+console.log(...numbers)
+
+const data = [{
+    name: "victor",
+    email: "victor@email.com",
+    avatar: "v.png",
+},
+{
+    name: "yasmin",
+    email: "yasmin@email.com",
+    avatar: "y.png",
+}
+]
+
+console.log(data)
+console.log(...data)
