@@ -1291,7 +1291,7 @@ function values(...rest){
 }
 
 values(2, 1, 3, 4)
-*/
+
 
 //Spread: permite que um objeto iteravel, como uma expressao de array ou uma string seja expandido para ser usado onde zero ou mais argumentos
 
@@ -1315,3 +1315,110 @@ const data = [{
 
 console.log(data)
 console.log(...data)
+
+
+//Metodo map() chama a função callback recebida por paramentos para cada elemento do array original, em ordem, e constroi um novo array com base nos retornos de cada chamada. E no final, devolve novo array
+
+const products = ["teclado", "mouse", "monitor"]
+
+//Percorrendo os itens do array
+products.map((product) =>{
+    console.log(product)
+})
+
+//Utilizando o novo objeto retornada.
+const formatted = products.map((product) => {
+    //return product.toUpperCase()
+
+    return {
+        id: Math.random(),
+        description: product,
+    }
+})
+
+console.log(formatted)
+
+
+//Metodo filter() cria um novo array com todos os elementos que passam na condição
+
+const words = ["Javascript", "HTML", "CSS", "Web"]
+
+const result = words.filter((word) => word.length > 3)
+console.log(result)
+
+const products = [
+    { description: "Teclado", price: 150, promotion: true},
+    { description: "Mouse", price: 70, promotion: false},
+    { description: "Monitor", price: 900, promotion: true},
+]
+//Exemplo de um filtro de produtos na promação
+const promotion = products.filter((product) => product.promotion === true)
+console.log(promotion)
+
+
+//Metodo findIndex() retorna o indice no arraydo primeiro elemento que satisfazer a condição. Caso contrario, retorna -1, indicando que nenhum elemento passou no teste
+
+const values = [4, 6, 8, 12]
+
+//Obtendo o primeiro indice do elemento que o valor é maior do que 4
+const index = values.findIndex((value) => value > 4)
+console.log(index)
+console.log(values[index])
+
+//Exemplo de quando nao encontra
+console.log(values.findIndex((value) => value > 12))
+
+
+//O metodo find() retorna o valor do primeiro elemento do array que satisfizer a condição. Caso contrario, undefined é retornado
+
+const values = [5, 12, 8, 130, 44]
+
+//Retorna o primeiro elemento que o valor é maior que 10
+const found = values.find((value) =>value > 10)
+console.log(found)
+
+//Exemplo com objetos
+
+const fruits = [
+    {name: "apples", quantity: 23},
+    {name: "bananas", quantity: 31},
+    {name: "oranges", quantity: 52},
+]
+
+const result = fruits.find((fruit) => fruit.name === "bananas")
+console.log(result)
+
+
+//Metodo every() testa se todos os elementos do array passam na condição e retorna um valor boolean
+
+const ages = [18, 30 , 39 , 29]
+
+//verificando se todas as idades sao maiores ou igual a 18
+
+const result = ages.every((age) => age >= 18)
+console.log(result)
+
+
+//Metodo some() testa se ao menos um dos elementos no array passa na condição e retorna um valor true ou false
+
+const ages = [18, 30 , 39 , 29]
+
+const result = ages.some((age) => age >= 18)
+console.log(result)
+
+
+//Metodo reduce é utilizado para reduzier um array a um unico valor
+
+const values = [1, 2, 3, 4, 5 ]
+
+const sum = values.reduce((accumulator, currentValue, index) => {
+    console.log("Acumulador: ", accumulator)
+    console.log("Current value: ", currentValue)
+    console.log("Index: ", index)
+
+    console.log("SOMA: ", accumulator + currentValue)
+    console.log("####################")
+
+    return accumulator + currentValue
+}, 0)
+*/
