@@ -1421,4 +1421,146 @@ const sum = values.reduce((accumulator, currentValue, index) => {
 
     return accumulator + currentValue
 }, 0)
+
+
+//Imutabilidade
+
+const address1 = {
+    street: "Av. Brasil",
+    number: 20,
+}
+
+//Isso não é uma copia. É uma referencia
+//const address2 = address1
+//address2.number = 30
+
+//Criando um novo objeto utilizando as propriedades e valores de address 1
+const address2 = {...address1}
+address2.number = 30
+console.log(address1, address2)
+
+
+//Exemplo de referencia de array
+
+const list1 = ["Apple", "Banana"]
+const list2 = list1
+list2.push("watermelon")
+console.log(list1, list2)
+
+//Criando outro objeto 
+const list1 = ["Apple", "Banana"]
+const list2 = [...list1]
+list2.push("watermelon")
+console.log(list1, list2)
+
+
+//Shallow copy(Copia rasa): Não pega os itens aninhados
+
+const htmlCourse = {
+    course: "HTML",
+    students: [{name: "Victor", email: "victor@email.com"}],
+}
+
+/*const jsCourse = {
+    ...htmlCourse,
+    course: "Javascript"
+}
+//Vai modificar o htmlcourse tambem students é uma referencia e não uma copia
+//jsCourse.students.push({name:"Yasmin", email:"yasmin@email.com"})
+
+/*const jsCourse = {
+    ...htmlCourse,
+    course: "Javascript",
+    students: [...htmlCourse.students, {name: "yasmin", email: "yasmin@email.com"}]
+}
+
+
+const jsCourse = {
+    ...htmlCourse,
+    course: "Javascript"
+}
+
+jsCourse.students = [
+    ...htmlCourse.students,
+    {name: "Yasmin", email: "yasmin@email.com"}
+]
+console.log(htmlCourse, jsCourse)
+
+
+const book = {
+    title: "Objetos imutaveis",
+    category: "Javascript",
+    author: {
+        name: "Victor",
+        email: "victor@email.com",
+    }
+}
+//O Javascript em si nao impoe restriçoes a modificação dos objetos
+//book.category = "HTML"
+
+//Conela o objeto e impede a modificação
+Object.freeze(book)
+book.category = "CSS" //Não modifica
+
+//O object.freeze() não impede modificação profundasa em objetos aninhados (shallow freezing)
+book.author.name = "Yasmin"
+console.log(book)
+
+
+
+const book = {
+    title: "Objetos imutaveis",
+    category: "Javascript",
+    author: {
+        name: "Victor",
+        email: "victor@email.com",
+    }
+}
+
+function deepFreeze(object){
+    //Obtem um array com todas as propriedades do objeto.
+    const props = Reflect.ownKeys(object)
+    
+    //Itera sobre todas as propriedades do objeto
+    for(const prop of props){
+        //Obtem o valor associado a propriedade atual
+        const value = object[prop]
+        
+        //Verifica se o valor é um objeto ou função para continuar aplicando o deepFreze em objetos aninhados
+        if((value && typeof value === "object") || typeof value === "function"){
+            deepFreeze(value)
+        }
+    }
+
+    return Object.freeze(object)
+}
+//Chama a função para congelar o objeto com deepfreeze
+deepFreeze(book)
+book.category = "HTML"
+book.author.name = "Yasmin"
+
+console.log(book)
 */
+
+const book = {
+    title: "Objetos imutaveis",
+    category: "Javascript",
+    author: {
+        name: "Victor",
+        email: "victor@email.com",
+    },
+}
+
+const updatedBook = {
+    ...book,
+    title: "Criando front end moderno com html",
+    category: "html",
+    type: "Programming"
+}
+//Original Intacto
+console.log(book)
+//Modificado
+console.log(updatedBook)
+//Utilizando operador de desestruturação (rest operator) para remover propriedade
+const { category, ...bookWithoutCategory} = book
+console.log(bookWithoutCategory)
