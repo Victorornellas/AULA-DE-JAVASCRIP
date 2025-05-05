@@ -1540,7 +1540,7 @@ book.category = "HTML"
 book.author.name = "Yasmin"
 
 console.log(book)
-*/
+
 
 const book = {
     title: "Objetos imutaveis",
@@ -1564,3 +1564,107 @@ console.log(updatedBook)
 //Utilizando operador de desestruturação (rest operator) para remover propriedade
 const { category, ...bookWithoutCategory} = book
 console.log(bookWithoutCategory)
+
+
+//SetTimeout() executa uma função após um intervalo de tempo especifico
+
+setTimeout(() => {
+    console.log("Olá, Tudo bem?")
+}, 3000 ) //Tempo em milissegundo
+
+//setInterval() executa uma função após um intervalo de tempo especifico
+
+let value = 10
+
+const interval = setInterval(() =>{
+    console.log(value)
+    value--
+
+    if (value === 0){
+        console.log("Feliz ano novo!")
+
+        //Interrompe o intervalo de execuções
+        clearInterval(interval)
+    }
+}, 1000)
+
+
+// Função que retorna uma promise. 
+
+function asyncFunction(){
+    return new Promise((resolve, reject) =>{
+        //Simula uma operação assincrona
+        setTimeout(() =>{
+        const isSuccess = false
+
+        if(isSuccess){
+            resolve("A operação foi concluida com sucesso!")
+        }else{
+            reject("Algo deu errado!")
+        }
+        }, 3000)
+    })
+}
+
+//Visualizando que o retorno é uma promise.
+//console.log(asyncFunction())
+
+
+console.log("Executando função assincrona...")
+asyncFunction()
+.then((response) =>{
+    console.log("Sucesso", response)
+}).catch((error) =>{
+    console.log("ERRO:", error)
+}).finally(() =>{
+    console.log("Fim da executação.")
+})
+
+
+function asyncFunction(){
+    return new Promise((resolve, reject) =>{
+        //Simula uma operação assincrona
+        setTimeout(() =>{
+        const isSuccess = true
+
+        if(isSuccess){
+            resolve("A operação foi concluida com sucesso!")
+        }else{
+            reject("Algo deu errado!")
+        }
+        }, 3000)
+    })
+}
+
+async function fetch(){
+    try{
+    const response = await asyncFunction()
+    console.log("SUCESSO:", response)
+    }catch (error){
+        console.log("ERROR:", error)
+    }finally{
+        console.log("Fim da execução")
+    }
+    
+}
+fetch()
+*/
+
+//Prioridade e ordem de execução
+
+// (1) Executa o codigo de forma sincrona e o vlaor 1 é impresso impediatamente no console.
+console.log(1)
+// (3) Microtastks são executadas antes de temporizadores e promises
+queueMicrotask(() =>{
+    console.log(2)
+})
+// (5) Macrotask que aguarda o evento de temporizador ser acionado.
+setTimeout(() =>{
+    console.log(3)
+}, 1000)
+// (2) Execução sincrona tambem.
+console.log(4)
+// (4) Adiciona uma Microtasks.
+Promise.resolve(true).then(() =>{
+    console.log(5)
+})
