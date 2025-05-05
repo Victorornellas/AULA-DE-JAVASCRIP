@@ -1648,7 +1648,7 @@ async function fetch(){
     
 }
 fetch()
-*/
+
 
 //Prioridade e ordem de execução
 
@@ -1668,3 +1668,16 @@ console.log(4)
 Promise.resolve(true).then(() =>{
     console.log(5)
 })
+
+
+const now = dayjs()
+console.log(now.format())
+*/
+
+//Versionamento semantico: 9.1.3 > 9 = Major; 1 = Minor; 3 = Patch. Major(Versão principal): Aumenta quando são feitas alterações incompativeis. Isso significa que, se voce atualizar para uma nova versao pricipal, pode haver alterações que quebrarao a compatibilidade com a versões anteriores. Minor(versão Menor): Aumenta quando são adicionadas novas funcionalidades de maneira compativel com versões anteriores. As atualizaçoes de versao menor nao devem introduzir altera~çoes que quebram a compatibilidade com codigo existente. Patch(versao de correção): Aumenta quando são feitas correções de bugs compativeis com versoes anteriores. Isso significa que essas correções não devem introduzir novas funcionalidades ou quebrar a compatibilidade.
+
+// O til(~) permite atualizações automaticas para versoes compativeis. Isso permite receber patches e correções de bugs.
+
+// O acento circunflexo(^) indica que o npm pode instalar automaticamente a versão mais recente compativel, mas nao a proxima versão incompativel. Isso permite receber patches, correções de bugs e pequenas alterações de versão, mas não grandes alterações de versão.
+
+// O arroba(@) quando você usa o @ antes das versão, indica uma versão exata. o npm instalará exatamente a versão especificada.
