@@ -1689,7 +1689,7 @@ console.log(now.format())
 )
 .then((data) => 
     console.log(data)
-)*/
+)
 
 //Utilizando o fetch com async/awai
 
@@ -1728,3 +1728,6 @@ addEventListener("submit", async (event) =>{
         })
     })
 })
+*/
+
+
