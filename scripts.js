@@ -1681,3 +1681,40 @@ console.log(now.format())
 // O acento circunflexo(^) indica que o npm pode instalar automaticamente a versão mais recente compativel, mas nao a proxima versão incompativel. Isso permite receber patches, correções de bugs e pequenas alterações de versão, mas não grandes alterações de versão.
 
 // O arroba(@) quando você usa o @ antes das versão, indica uma versão exata. o npm instalará exatamente a versão especificada.
+
+//Tulizando o fetch com then
+/*fetch("http://localhost:3333/products")
+.then((response) => 
+    response.json()
+)
+.then((data) => 
+    console.log(data)
+)*/
+
+//Utilizando o fetch com async/awai
+
+async function fetchProducts(){
+    const response = await fetch("http://localhost:3333/products")
+    const data = await response.json()
+    console.log(data)
+}
+
+async function fetchProductById(id) {
+    const response = await fetch(`http://localhost:3333/products/${id}`)
+    const data = await response.json()
+    console.log(data)
+    
+}
+//fetchProductById("3")
+
+//fetchProducts()
+
+const name = document.getElementById("name")
+const price = document.getElementById("price")
+const form = document.getElementsByTagName("form")
+
+addEventListener("submit", async (event) =>{
+    event.preventDefault()
+    
+    await fetchProducts()
+})
