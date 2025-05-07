@@ -1,10 +1,10 @@
 {
   "scripts": {
-    "server": "json-server server.json --port=3333"
+    "build": "babel main.js --watch --out-dir ./dist",
+     "dev": "babel main.js --out-dir ./dist"
+    
   },
-  "dependencies": {
-    "json-server": "^1.0.0-alpha.17"
-  },
+
   "devDependencies": {
     "@babel/cli": "^7.27.2",
     "@babel/core": "^7.27.1",
